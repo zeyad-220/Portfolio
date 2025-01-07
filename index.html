@@ -38,6 +38,32 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
+        /* Responsive styles for mobile devices (screen width 480px and below) */
+@media screen and (max-width: 480px) {
+    .header {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+/* Landscape orientation */
+@media screen and (orientation: landscape) {
+    .header {
+        font-size: 28px;
+    }
+}
+
         header .logo img {
             width: 100px; 
             height: 100px;
