@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "bVz_AOZpAbCR2gADo",
+      });
+   })();
+        </script>
+    <style>
+        /* Body and Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #fff;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px; 
+            background: linear-gradient(90deg, #e60000, #ff3333);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo img {
+            width: 100px; 
+            height: 100px;
+            object-fit: contain;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li {
+            display: inline;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            background: #fff;
+            color: #e60000;
+        }
+
+        /* Home Section */
+        .home-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .home-section img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            animation: float 3s infinite alternate;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+        }
+
+        .home-section .intro h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .social-links img {
+            width: 45px;
+            height: 45px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+
+        .home-section .intro p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.7); 
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 50px 20px;
+            text-align: center;
+            background: #262626;
+        }
+
+        .skills-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill {
+            text-align: center;
+            color: #fff;
+            width: 120px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Certificates Section */
+        .certificates-section {
+            padding: 50px 20px;
+            text-align: center;
+            background: #333;
+        }
+
+        .certificates-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .certificates {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .certificate {
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .certificate img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .certificate:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 50px 20px;
+            background: #262626;
+            text-align: center;
+        }
+
+        .projects-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .project {
+            background: #444;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .project img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .project button {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e60000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .project button:hover {
+            background: #ff3333;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 50px 20px;
+            background: #333;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #1a1a1a;
+            color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #e60000;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #ff3333;
+        }
+
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Animations */
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #response-message {
+            display: none;
+            color: white;
+            background-color: green;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo"><img src="Images/Pics/logo.png" alt="Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+        <img src="Images/Pics/profile.jpg" alt="Profile Picture">
+        <div class="intro">
+            <h2>Hello,Iam Zeyad Gaber</h2>
+            <p>Web Developer | Computer Technician</p>
+            <div class="social-links">
+                <a href="https://linktr.ee/zeyad22" target="_blank"><img src="Images/Pics/Linktree-icon.png" alt="Linktree"></a>
+                <a href="https://www.instagram.com/callmezeyad_/" target="_blank"><img src="Images/Pics/Instgram-icon.png" alt="Instagram"></a>
+                <a href="https://github.com/zeyad-220" target="_blank"><img src="Images/Pics/GitHub-icon.png" alt="GitHub"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">
+                <img src="Images/Pics/html-icon.png" alt="HTML">
+                <p>HTML</p>
+            </div>
+            <div class="skill">
+                <img src="Images/Pics/css-icon.png" alt="CSS">
+                <p>CSS</p>
+            </div>
+            <div class="skill">
+                <img src="Images/Pics/js-icon.png" alt="JavaScript">
+                <p>JavaScript</p>
+            </div>
+            <div class="skill">
+                <img src="Images/Pics/MS OFFICE.png" alt="MS OFFICE">
+                <p>MS OFFICE</p>
+            </div>
+            <div class="skill">
+                <img src="Images/Pics/SQL.png" alt="SQL">
+                <p>SQL</p>
+            </div>
+            <div class="skill">
+                <img src="Images/Pics/Data-entry.png" alt="Data Entry">
+                <p>Data Entry</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <img src="Images/Pics/project1.jpg" alt="Project 1">
+                <p>Project 1 Description</p>
+                <button>View Project</button>
+            </div>
+        </div>
+    </section>
+
+<!-- Certificates Section -->
+<section id="certificates" class="certificates-section">
+    <h2>Certificates</h2>
+    <div class="certificates">
+        <div class="certificate">
+            <img src="Images/Certificates/JS.png" alt="JS Certificate">
+            <p> Cisco _JS Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/CYBERSECURITY.png" alt="Cybersecurity Certificate">
+            <p>Cisco _Introduction to Cybersecurity Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/AI.png" alt="AI Certificate">
+            <p> HP _AI for Beginners Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/IT.png" alt="IT Certificate">
+            <p> HP _IT for Business Success Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/IOT.png" alt="IOT Certificate">
+            <p> Cisco _Introduction to IoT Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/HARDWARE.png" alt="HARDWARE Certificate">
+            <p> Cisco _Computer Hardware Basics Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/Effective Leadership.png" alt="Effective Leadership Certificate">
+            <p> HP _Effective Leadership Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/JAVA SE.png" alt="JAVA SE1 Certificate">
+            <p> INTRAST _Java SE: Programming I Certification</p>
+        </div>
+        <div class="certificate">
+            <img src="Images/Certificates/MYSQL.png" alt="MySQL Fundamentals Certificate">
+            <p> INTRAST _MySQL Fundamentals Certification</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <div class="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" onclick="sendMessage()">Send Message</button>
+            <div id="response-message"></div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 Zeyad Gaber | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        emailjs.init("bVz_AOZpAbCR2gADo");
+
+function sendMessage() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    var responseMessage = document.getElementById("response-message");
+
+    // Check if fields are filled
+    if (!name || !email || !message) {
+        responseMessage.style.display = "block";
+        responseMessage.innerText = "Please fill in all fields.";
+        responseMessage.style.backgroundColor = "orange";
+        return;
+    }
+
+    // Send email via EmailJS
+    emailjs.send("service_ug6050e", "template_bge8w3g", {
+        name: name,
+        email: email,
+        message: message
+    }).then(function(response) {
+        responseMessage.style.display = "block";
+        responseMessage.innerText = "Message sent successfully!";
+        responseMessage.style.backgroundColor = "green";
+    }, function(error) {
+        responseMessage.style.display = "block";
+        responseMessage.innerText = "Failed to send message. Check console for details.";
+        responseMessage.style.backgroundColor = "red";
+        console.error("EmailJS Error:", error);
+    });
+}
+
+    </script>
+    
+</body>
+</html>
