@@ -387,7 +387,7 @@
 <body>
     <!-- Header Section -->
     <header>
-        <div class="logo"><img src="Images/logo.png" alt="Logo"></div>
+        <div class="logo"><img src="Images/Pics/logo.png" alt="Logo"></div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -503,6 +503,16 @@
                 <p>Digital Clock with Alarm</p>
                 <a href="https://zeyad-220.github.io/Digital-Clock-with-Alarm/" target="_blank"><button>View Project</button></a>
             </div>
+            <div class="project">
+                <img src="Images/projects/Exchange Rate Converter.png" alt="Project 5">
+                <p>Exchange Rate Converter</p>
+                <a href="https://zeyad-220.github.io/Exchange-Rate-Converter/" target="_blank"><button>View Project</button></a>
+            </div>
+            <div class="project">
+                <img src="Images/projects/To-Do List.png" alt="Project 6">
+                <p>2 Players TIC TAC TOE</p>
+                <a href="https://zeyad-220.github.io/Tic-tac-toe-2-players/" target="_blank"><button>View Project</button></a>
+            </div>
         </div>
     </section>
 
@@ -567,6 +577,14 @@
     </footer>
 
     <script>
+        // Toggle the visibility of the menu
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+<script>
     const toggleButton = document.getElementById('toggleButton');
     const moreText = document.getElementById('moreText');
     
@@ -581,14 +599,6 @@
         }
     });
 </script>
-    
-    <script>
-        // Toggle the visibility of the menu
-        function toggleMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('active');
-        }
-    </script>
 
     <script>
         emailjs.init("bVz_AOZpAbCR2gADo");
